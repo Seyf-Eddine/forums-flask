@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Omac</title>
+    <link rel="stylesheet" href="/static/style.css?reload">
+</head>
+<body>
+    <container>
+        <header>
+            <h1>One Million Arab Coders</h1>
+            <ul>
+                <li class="profile">Profile</li>
+                <li class="members">Member's list</li>
+            </ul>
+        </header>
+        <br />
+        <content>
+            <add><a href="/topic/add">Create new +</a></add>
+            <br /> <br />
+            <table>
+                <thead>
+                    <td class="title">Title</td> <!--> <td>Edit</td> <!--> <td>Delete</td>
+                </thead>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.title}}</td>
+                        <td><a href="#">edit</a></td>
+                        <td><a href="#">del</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </content>
+    </container>
+</body>
+</html>

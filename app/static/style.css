@@ -1,0 +1,108 @@
+* {
+    margin : 20px auto
+}
+
+header {
+    position: relative;
+    width: 100%;
+    text-align: center
+}
+
+header ul {
+    list-style: none;
+    width:210px;
+    position: relative;
+    left:30%
+}
+header ul li {
+    display: inline;
+    padding: 15px;
+    cursor: pointer
+}
+
+header ul li.profile {
+    margin-right:10px;
+    border: solid 1px #000;
+    border-radius: 150%
+}
+
+header ul li.members:hover {
+    text-decoration: underline
+}
+
+add {
+    position: relative;
+    left: 80%;
+    border: solid 1px #000;
+    padding: 5px;
+    margin-right: 50px;
+    cursor: pointer
+}
+
+add:hover {
+    background-color: #d3d3d3;
+    color: #FFF;
+    text-weight: bold
+}
+add.selected {
+    background-color: #d3d3d3;
+    color: #FFF;
+    text-weight: bold
+    cursor: none;
+}
+add a {
+    text-decoration: none
+}
+content form.add {
+    display: block;
+    margin: auto;
+    max-width: 500px;
+    position: relative
+}
+content form.add input{
+    margin: auto;
+    width: 300px
+}
+content form.add textarea{
+    margin: auto;
+    width: 500px;
+    height: 200px
+}
+content form.add button {
+    padding: 5px;
+    text-weight: bold;
+    background-color: grey;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #000
+}
+table {
+    margin: auto;
+    position: relative;
+}
+table thead{
+    font-weight: bold
+}
+
+table td:first-child {
+    min-width: 500px;
+    text-align: left
+}
+
+table td {
+    text-align: center;
+    border-bottom: solid 1px #e3e3e3;
+    padding: 10px
+}
+
+table td a {
+    text-decoration: none
+}
+
+table td a:hover {
+    text-decoration: none;
+    color: red
+}

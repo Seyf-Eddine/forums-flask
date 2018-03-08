@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Topic</title>
+    <link rel="stylesheet" href="/static/style.css?reload">
+</head>
+<body>
+    <header>
+        <h1>One Million Arab Coders</h1>
+        <ul>
+            <li class="profile">Profile</li>
+            <li class="members">Member's list</li>
+        </ul>
+    </header>
+     <br />
+    <content>
+        <add class="selected">Create new +</add>
+        <br /><br/><br/>
+        <div class="topic_add_form">
+            <form action="{{ url_for('topic_add') }}" class="add" method="post">
+                <input type="text" name="title" placeholder="Topic title">
+                <br/><br/>
+                <textarea name="content" placeholder="Write topic content here..."></textarea>
+                <br/>
+                <button type="submit">Add topic</button>
+            </form>
+        </div>
+    </content>
+</body>
+</html>
