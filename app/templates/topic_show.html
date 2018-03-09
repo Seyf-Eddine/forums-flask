@@ -18,7 +18,7 @@
         <br />
         <content>
 
-            <h2 class="title">{{post.title}} <a href="">Edit</a></h2>
+            <h2 class="title">{{post.title}} <a href="{{ url_for('topic_edit', id = post.id) }}">Edit</a></h2>
             <p class="content">{{post.content}}</p>
         </content>
     </container>

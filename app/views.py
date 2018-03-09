@@ -26,6 +26,19 @@ def topic_delete(id):
     post_store.delete(id)
     return redirect(url_for("home"))
 
+
 @app.route("/topic/show/<int:id>")
 def topic_show(id):
     return render_template("topic_show.html", post=post_store.get_by_id(id))
+
+
+@app.route("/topic/edit/<int:id>", methods=["GET","POST"])
+def topic_edit(id):
+    if request.method == "POST":
+        post = post_store.get_by_id(id)
+        post.title = request.form['title']
+        post.content = request.form['content']
+        post_store.update(post)
+        return render_template("topic_show.html", post=post_store.get_by_id(id))
+    else:
+        return render_template("topic_edit.html", post=post_store.get_by_id(id))

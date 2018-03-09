@@ -26,7 +26,7 @@
                 {% for post in posts %}
                     <tr>
                         <td><a href="{{ url_for('topic_show', id = post.id) }}">{{post.title}}</a></td>
-                        <td><a href="#">edit</a></td>
+                        <td><a href="{{ url_for('topic_edit', id = post.id) }}">edit</a></td>
                         <td><a href="{{ url_for('topic_delete', id = post.id) }}">del</a></td>
                     </tr>
                 {% endfor %}
