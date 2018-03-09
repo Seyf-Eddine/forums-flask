@@ -11,7 +11,7 @@ def home():
     return render_template("index.html", posts=post_store.get_all())
 
 
-@app.route("/topic/add", methods = ["GET", "POST"])
+@app.route("/topic/add", methods=["GET", "POST"])
 def topic_add():
     if request.method == "POST":
         new_post = models.Post(request.form["title"], request.form["content"])
@@ -19,3 +19,9 @@ def topic_add():
         return redirect(url_for("home"))
     else:
         return render_template("topic_add.html")
+
+
+@app.route("/topic/delete/<int:id>")
+def topic_delete(id):
+    post_store.delete(id)
+    return redirect(url_for("home"))

@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{post.title}}</td>
                         <td><a href="#">edit</a></td>
-                        <td><a href="#">del</a></td>
+                        <td><a href="{{ url_for('topic_delete', id = post.id) }}">del</a></td>
                     </tr>
                 {% endfor %}
             </table>
