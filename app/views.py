@@ -25,3 +25,7 @@ def topic_add():
 def topic_delete(id):
     post_store.delete(id)
     return redirect(url_for("home"))
+
+@app.route("/topic/show/<int:id>")
+def topic_show(id):
+    return render_template("topic_show.html", post=post_store.get_by_id(id))

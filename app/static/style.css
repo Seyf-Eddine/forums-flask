@@ -106,3 +106,29 @@ table td a:hover {
     text-decoration: none;
     color: red
 }
+
+table tr td:first-child a {
+    text-decoration: none;
+    color: #000
+}
+
+content h2.title {
+    width: 700px;
+    padding: 20px 10px;
+    border-bottom: 1px solid #e3e3e3
+}
+
+content h2 a {
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+content h2 a:hover {
+    color: red;
+    font-style: italic;
+    text-decoration: underline
+}
+
+content p.content {
+    max-width: 690px
+}
