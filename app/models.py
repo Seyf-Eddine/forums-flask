@@ -11,6 +11,14 @@ class Member():
     def __str__(self):
         return "Name: " + self.name + ", Age: " + str(self.age)
 
+    def __dict__(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "age": self.age,
+            "posts": self.posts,
+        }
+
 
 class Post():
     def __init__(self, title, content, member_id=0):
@@ -22,3 +30,11 @@ class Post():
 
     def __str__(self):
         return "Title: " + self.title + ", Content: " + self.content
+
+    def __dict__(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "content": self.content,
+            "member_id": self.member_id,
+        }
