@@ -125,7 +125,7 @@ content h2 a {
 
 content h2 a:hover {
     color: red;
-    font-style: italic;
+    font-style: oblique;
     text-decoration: underline
 }
 
