@@ -18,34 +18,33 @@ def topic_create():
     post_store.add(new_post)
     return jsonify(new_post.__dict__())
 
-@app.route("/api/topic/delete", methods = ["POST"])
-def topic_remove():
-    request_data = request.get_json()
-    id = request_data["id"]
-    if post_store.get_by_id(id) is not None:
+@app.route("/api/topic/delete/<int:id>")
+def topic_remove(id):
+    post = post_store.get_by_id(id)
+    if post is not None:
         post_store.delete(id)
-    posts = [post.__dict__() for post in post_store.get_all()]
-    return jsonify(posts)
+        return jsonify(post.__dict__())
+    else:
+        return "Error this topic does not exist"
 
 
-@app.route("/api/topic/edit", methods = ["POST"])
-def topic_modify():
+@app.route("/api/topic/edit/<int:id>", methods = ["POST"])
+def topic_modify(id):
     request_data = request.get_json()
-    id = request_data["id"]
     post = post_store.get_by_id(id)
     if post is not None:
         post.title = request_data["title"]
         post.content = request_data["content"]
         post_store.update(post)
-    return jsonify(post.__dict__())
+        return jsonify(post.__dict__())
+    else:
+        return "This topic does not exist"
 
 
-@app.route("/api/topic/show", methods = ["POST"])
-def topic_read():
-    request_data = request.get_json()
-    id = request_data["id"]
+@app.route("/api/topic/show/<int:id>")
+def topic_read(id):
     post = post_store.get_by_id(id)
     if post is not None:
         return jsonify(post.__dict__())
     else:
-        return "post doesn't exist"
+        return "This topic does not exist"
