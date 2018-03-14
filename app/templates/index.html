@@ -27,7 +27,7 @@
                     <tr>
                         <td><a href="{{ url_for('topic_show', id = post.id) }}">{{post.title}}</a></td>
                         <td><a href="{{ url_for('topic_edit', id = post.id) }}">edit</a></td>
-                        <td><a href="{{ url_for('topic_delete', id = post.id) }}">del</a></td>
+                        <td><a id="{{post.id}}" href="#">del</a></td>
                     </tr>
                 {% endfor %}
             </table>
@@ -35,3 +35,34 @@
     </container>
 </body>
 </html>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+<script>
+   $(function ()
+    {
+        $("a").click(function(event){
+            var id = event.target.id;
+            alert("id = "+id);
+            var topicData = {
+                "title": "",
+                "content": ""
+                };
+            $.ajax({
+                type: "DELETE",
+                url: "/api/topic/delete/"+id,
+                data: JSON.stringify(topicData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response)
+                {
+                    alert("Added topic successfully !");
+                }
+            });
+        });
+    });
+</script>
