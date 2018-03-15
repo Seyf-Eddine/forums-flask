@@ -27,7 +27,7 @@
                     <tr>
                         <td><a href="{{ url_for('topic_show', id = post.id) }}">{{post.title}}</a></td>
                         <td><a href="{{ url_for('topic_edit', id = post.id) }}">edit</a></td>
-                        <td><a id="{{post.id}}" href="#">del</a></td>
+                        <td><a class="delete_topic" id="{{post.id}}" href="#">del</a></td>
                     </tr>
                 {% endfor %}
             </table>
@@ -45,18 +45,12 @@
 <script>
    $(function ()
     {
-        $("a").click(function(event){
+        $(".delete_topic").click(function(event){
             var id = event.target.id;
             alert("id = "+id);
-            var topicData = {
-                "title": "",
-                "content": ""
-                };
             $.ajax({
                 type: "DELETE",
                 url: "/api/topic/delete/"+id,
-                data: JSON.stringify(topicData),
-                contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response)
                 {
