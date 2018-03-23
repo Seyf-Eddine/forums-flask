@@ -20,13 +20,19 @@ dummy_posts = [
     models.Post(title="Operating Systems", content="Ewww", member_id=3),
 ]
 
+def is_seeded(post_store):
+    result = False
+    if len(post_store.get_all()) > 0:
+        result = True
+    return result
 
 def seed_stores(member_store, post_store):
-    db.drop_all()
-    db.create_all()
+    if not is_seeded(post_store):
+        db.drop_all()
+        db.create_all()
 
-    for member in dummy_members:
-        member_store.add(member)
+        for member in dummy_members:
+            member_store.add(member)
 
-    for post in dummy_posts:
-        post_store.add(post)
+        for post in dummy_posts:
+            post_store.add(post)
